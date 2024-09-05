@@ -6,6 +6,11 @@ Model.reopen({
 
   init(){
     this._super(...arguments);
+
+    if (this.disableChangeTracker) {
+      return;
+    }
+
     if (Tracker.isAutoSaveEnabled(this)) {
       this.initTracking();
     }
